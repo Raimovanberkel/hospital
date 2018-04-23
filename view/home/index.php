@@ -1,0 +1,1 @@
+<?php echo "view/home/index.php"; ?>
