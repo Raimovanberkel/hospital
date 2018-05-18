@@ -1,6 +1,7 @@
 <?php
 
-function index()
-{
-	echo "ERROR 405";
+function index(){
+echo "<h1>ERROR</h1><br><br>Werkt niet!";
 }
+
+?>	

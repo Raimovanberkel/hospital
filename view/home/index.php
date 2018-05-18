@@ -1,1 +1,1 @@
-<?php echo "view/home/index.php"; ?>
+<?php echo '<h1>Home</h1>'; ?>

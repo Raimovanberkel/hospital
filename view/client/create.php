@@ -2,14 +2,14 @@
 
 <div class="header">
     <div class="card"><h1>New Cliënt</h1></div>
-<form action="" method="post">
+    <form action="<?= URL ?>Client/createclient" method="post">
     <p>
-        <label for="firstName">First Name:</label>
-        <input type="text" name="first_name" id="firstName">
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstname">
     </p>
     <p>
-        <label for="lastName">Last Name:</label>
-        <input type="text" name="last_name" id="lastName">
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" id="lastname">
     </p>
 
     <input type="submit" value="Submit">
