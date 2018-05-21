@@ -25,6 +25,7 @@ function createclient() {
 		':firstname' => $firstname,
 		':lastname' => $lastname));
 	$db = null;
+	return render('client/index');
 	return true;
 }
 
@@ -38,6 +39,7 @@ function deleteclient($clientid = null) {
 	$query->execute(array(
 		':client_id' => $clientid));
 	$db = null;
+	return render('client/index');
 	return true;
 }
 

@@ -1,14 +1,7 @@
 <?php
-
 	$connection = new mysqli('localhost','root','','hospital');
-	
-
 	$sql = "SELECT * FROM clients";
-	
-
 	$result = $connection->query($sql);
-	
-
 	$clientslist = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <h1>clients</h1>
@@ -24,7 +17,6 @@
 			</tr>
 		</thead>
 <?php 
-
 	foreach($clientslist as $client){
 ?>
 	<tr>
@@ -38,5 +30,6 @@
 ?>
 	</table>
 			<p class="options"><a href= "<?= URL ?>client/create"> + Create</a></p>
+
 </body>
 </html>

@@ -45,5 +45,7 @@ form div {
 }
 
 #clientid{
-	display: none;
+	border: none;
+	cursor: default;
+	width: 110px;
 }
