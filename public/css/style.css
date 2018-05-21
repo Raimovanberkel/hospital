@@ -44,7 +44,7 @@ form div {
 	margin: 5px 0;
 }
 
-#clientid{
+.hiddenid{
 	border: none;
 	cursor: default;
 	width: 110px;

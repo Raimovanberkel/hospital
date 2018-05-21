@@ -6,7 +6,7 @@
     <input type="text" name="description" value="<?= $species['species_description'] ?>" id="description"><br>
 
     <label for="speciesid">species ID:</label>
-   	<input type="text" name="speciesid" value="<?= $species['species_id'] ?>" id="clientid" readonly>
+   	<input type="text" name="speciesid" value="<?= $species['species_id'] ?>" class="hiddenid" readonly>
     <input type="submit" value="Submit">
   </form>
 </div>

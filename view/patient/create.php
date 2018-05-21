@@ -34,7 +34,7 @@
 			</select>	<br>
 
 			<label for="client">Clients:</label>	
-			<select name="client">
+			<select name="client" >
 				<?php
 					foreach($clientlist as $clients):
 				?>

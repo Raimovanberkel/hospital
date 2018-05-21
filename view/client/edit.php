@@ -7,7 +7,7 @@
     <label for="lastname">Lastname:</label>
     <input type="text" name="lastname" value="<?= $client['client_lastname'] ?>" id="lastname"><br>
     <label for="clientid">Client ID:</label>
-   	<input type="text" name="clientid" value="<?= $client['client_id'] ?>" id="clientid" readonly>
+   	<input type="text" name="clientid" value="<?= $client['client_id'] ?>" class="hiddenid" readonly>
     <input type="submit" value="Submit">
   </form>
 </div>
