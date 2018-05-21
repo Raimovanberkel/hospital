@@ -2,42 +2,42 @@
 
 require(ROOT . "/model/SpeciesModel.php");
 
-// http://localhost/Hospital/client/index
+// http://localhost/Hospital/species/index
 function index() {
 	return render('species/index');
 }
 
 function create() {
-	render("client/create");
+	render("species/create");
 }
 
 function createSave() {
-	if (!createClient()) {
+	if (!createspecies()) {
 		header('Location:' . URL . 'error/index');
 		exit();
 	}
-	header('Location:' . URL . 'client/index');
+	header('Location:' . URL . 'species/index');
 }
 
-function delete($clientid) {
-	if (!deleteclient($clientid)) {
+function delete($speciesid) {
+	if (!deletespecies($speciesid)) {
 		header("Location:" . URL . "error/index");
 		exit();
 	}
-	header("Location:" . URL . "client/index");
+	header("Location:" . URL . "species/index");
 }
 
-function edit($clientid) {
-	render("client/edit", array(
-		'client' => getclient($clientid)
+function edit($speciesid) {
+	render("species/edit", array(
+		'species' => getspecies($speciesid)
 		));
 }
 
-function editSave($clientid) {
-	if (!editclient($clientid)) {
+function editSave($speciesid) {
+	if (!editspecies($speciesid)) {
 		header('location:' . URL . 'error/index');
 	}
-	header('location:' . URL . 'client/index');
+	header('location:' . URL . 'species/index');
 } 
 
 ?>

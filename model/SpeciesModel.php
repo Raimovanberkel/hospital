@@ -1,65 +1,60 @@
 <?php
 
-function getclient($clientid) {
+function getspecies($speciesid) {
 	$db = openDatabaseConnection();
-	$sql = "SELECT * FROM clients WHERE client_id = :client_id";
+	$sql = "SELECT * FROM species WHERE species_id = :species_id";
 	$query = $db->prepare($sql);
-	$query->execute(array(":client_id" => $clientid));
+	$query->execute(array(":species_id" => $speciesid));
 	$db = null;
 	return $query->fetch();
 }
 
-function createclient() {
-	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
-	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
-
+function createspecies() {
+	$description = isset($_POST['description']) ? $_POST['description'] : null;
 	
-	if (strlen($firstname) == 0 || strlen($lastname) == 0) {
+	if (strlen($description) == 0 ) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "INSERT INTO clients(client_firstname, client_lastname) VALUES (:firstname, :lastname)";
+	$sql = "INSERT INTO species(species_description) VALUES (:description)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':firstname' => $firstname,
-		':lastname' => $lastname));
+		':description' => $description));
 	$db = null;
-	return render('client/index');
+	return render('species/index');
 	return true;
 }
 
-function deleteclient($clientid = null) {
-		if (!$clientid) {
+function deletespecies($speciesid = null) {
+		if (!$speciesid) {
 		return false;
 	}
 	$db = openDatabaseConnection();
-	$sql = "DELETE FROM clients WHERE client_id = :client_id ";
+	$sql = "DELETE FROM species WHERE species_id = :species_id ";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':client_id' => $clientid));
+		':species_id' => $speciesid));
 	$db = null;
-	return render('client/index');
+	return render('species/index');
 	return true;
 }
 
-function editclient($clientid = null) {
-	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
-	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
-	$clientid = isset($_POST['clientid']) ? $_POST['clientid'] : null;
+function editspecies($speciesid = null) {
+	$description = isset($_POST['description']) ? $_POST['description'] : null;
+	$speciesid = isset($_POST['speciesid']) ? $_POST['speciesid'] : null;
 
-	if (strlen($firstname) == 0 && strlen($lastname) == 0 ) {
+	if (strlen($description) == 0 ) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
 
-	$sql = "UPDATE clients SET client_firstname = :client_firstname, client_lastname = :client_lastname WHERE client_id = :client_id";
+	$sql = "UPDATE species SET species_description = :species_description WHERE species_id = :species_id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':client_firstname' => $firstname,
-		':client_lastname' => $lastname,
-		':client_id' => $clientid));
+		':species_description' => $description,
+		':species_id' => $speciesid));
 	$db = null;
 	return true;
 }
