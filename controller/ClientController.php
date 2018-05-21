@@ -33,10 +33,9 @@ function edit($clientid) {
 		));
 }
 
-function editSave() {
-	if (!editclient()) {
+function editSave($clientid) {
+	if (!editclient($clientid)) {
 		header('location:' . URL . 'error/index');
-		exit();
 	}
 	header('location:' . URL . 'client/index');
 } 

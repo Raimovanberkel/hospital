@@ -38,6 +38,5 @@
 ?>
 	</table>
 			<p class="options"><a href= "<?= URL ?>client/create"> + Create</a></p>
-
 </body>
 </html>

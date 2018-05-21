@@ -41,17 +41,18 @@ function deleteclient($clientid = null) {
 	return true;
 }
 
-function editclient($clientid) {
+function editclient($clientid = null) {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
 	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
-	$clientid = isset($_POST['client_id']) ? $_POST['client_id'] : null;
-	
+	$clientid = isset($_POST['clientid']) ? $_POST['clientid'] : null;
+
 	if (strlen($firstname) == 0 && strlen($lastname) == 0 ) {
 		return false;
 	}
 	
 	$db = openDatabaseConnection();
-	$sql = "UPDATE clients SET firstname = :client_firstname, lastname = :client_lastname WHERE clientid = :client_id";
+
+	$sql = "UPDATE clients SET client_firstname = :client_firstname, client_lastname = :client_lastname WHERE client_id = :client_id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':client_firstname' => $firstname,
