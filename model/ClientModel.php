@@ -1,5 +1,9 @@
 <?php
 
+function test(){
+	echo "test";
+}
+
 function getclient($clientid) {
 	$db = openDatabaseConnection();
 	$sql = "SELECT * FROM clients WHERE client_id = :client_id";

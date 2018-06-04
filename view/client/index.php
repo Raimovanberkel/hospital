@@ -1,9 +1,3 @@
-<?php
-	$connection = new mysqli('localhost','root','','hospital');
-	$sql = "SELECT * FROM clients";
-	$result = $connection->query($sql);
-	$clientslist = $result->fetch_all(MYSQLI_ASSOC);
-?>
 <h1>clients</h1>
 
 	<table>

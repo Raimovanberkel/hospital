@@ -5,6 +5,7 @@ require(ROOT . "/model/ClientModel.php");
 // http://localhost/Hospital/client/index
 function index() {
 	return render('client/index');
+    
 }
 
 function create() {
