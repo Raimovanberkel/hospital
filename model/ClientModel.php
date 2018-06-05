@@ -1,7 +1,12 @@
 <?php
 
-function test(){
-	echo "test";
+function getallclients() {
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM clients";
+	$query = $db->prepare($sql);
+	$query->execute(array());
+	$db = null;
+	return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getclient($clientid) {
