@@ -1,14 +1,22 @@
 <?php
 
 require(ROOT . "/model/patientModel.php");
+require(ROOT . "/model/ClientModel.php");
+require(ROOT . "/model/SpeciesModel.php");
 
 // http://localhost/Hospital/patient/index
 function index() {
-	return render('patient/index');
+	return render('patient/index', ['patientslist'=>getAllPatients()]);
 }
 
 function create() {
-	render("patient/create");
+	render("patient/create", 
+		[
+			'specieslist' => getSpeciesList(),
+			'clientlist' => getallclients()
+		]
+	);
+
 }
 
 function createSave() {

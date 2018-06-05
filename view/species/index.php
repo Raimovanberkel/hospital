@@ -1,10 +1,3 @@
-<?php
-
-	$connection = new mysqli('localhost','root','','hospital');
-	$sql = "SELECT * FROM species";
-	$result = $connection->query($sql);
-	$specieslist = $result->fetch_all(MYSQLI_ASSOC);
-?>
 
 <h1>Species</h1>
 

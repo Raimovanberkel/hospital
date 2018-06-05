@@ -1,4 +1,3 @@
-<?php get_included_files()  ?>
 
 <div class="header">
     <div class="card"><h1>New Species</h1></div>

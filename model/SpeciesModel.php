@@ -1,5 +1,15 @@
 <?php
 
+
+function getSpeciesList() {
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM species";
+	$query = $db->prepare($sql);
+	$query->execute();
+	$db = null;
+	return $query->fetchAll();	
+}
+
 function getspecies($speciesid) {
 	$db = openDatabaseConnection();
 	$sql = "SELECT * FROM species WHERE species_id = :species_id";
@@ -22,7 +32,6 @@ function createspecies() {
 	$query->execute(array(
 		':description' => $description));
 	$db = null;
-	return render('species/index');
 	return true;
 }
 
@@ -36,7 +45,6 @@ function deletespecies($speciesid = null) {
 	$query->execute(array(
 		':species_id' => $speciesid));
 	$db = null;
-	return render('species/index');
 	return true;
 }
 

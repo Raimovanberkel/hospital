@@ -16,7 +16,7 @@
 		<td><?php echo $client['client_firstname']; ?></td>
 		<td><?php echo $client['client_lastname']; ?></td>
 		<td class="center"><a href="<?php echo URL . 'client/edit/' . $client['client_id']; ?>">edit</a></td>
-		<td class="center"><a href=" <?php echo URL . 'client/deleteclient/' . $client['client_id']; ?>">delete</a></td>
+		<td class="center"><a href=" <?php echo URL . 'client/delete/' . $client['client_id']; ?>">delete</a></td>
 	</tr>
 <?php } ?>
 	</table>

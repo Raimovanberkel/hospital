@@ -1,5 +1,22 @@
 <?php
 
+function getAllPatients() {
+	$db = openDatabaseConnection();
+	$sql = "SELECT 
+	patients.*, 
+	species.species_description,
+	clients.client_firstname as Clientname
+	FROM patients 
+	LEFT JOIN species on patients.species_id = species.species_id
+	LEFT JOIN clients on patients.client_id = clients.client_id
+
+	";
+	$query = $db->prepare($sql);
+	$query->execute();
+	$db = null;
+	return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getpatient($patientid) {
 	$db = openDatabaseConnection();
 	$sql = "SELECT * FROM patients WHERE patient_id = :patient_id";
@@ -28,7 +45,6 @@ function createpatient() {
 		':species_id' => $species,
 		':patient_status' => $status));
 	$db = null;
-	return render('patient/index');
 	return true;
 }
 
@@ -42,7 +58,6 @@ function deletepatient($patientid = null) {
 	$query->execute(array(
 		':patient_id' => $patientid));
 	$db = null;
-	return render('patient/index');
 	return true;
 }
 

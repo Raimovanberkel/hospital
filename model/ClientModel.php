@@ -22,7 +22,6 @@ function createclient() {
 	$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : null;
 	$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : null;
 
-	
 	if (strlen($firstname) == 0 || strlen($lastname) == 0) {
 		return false;
 	}
@@ -34,21 +33,31 @@ function createclient() {
 		':firstname' => $firstname,
 		':lastname' => $lastname));
 	$db = null;
-	return render('client/index');
+
+	if (!$query) {
+		$_SESSION['errors'][] = "Fout!";
+		return false;
+	}
+
 	return true;
 }
 
 function deleteclient($clientid = null) {
-		if (!$clientid) {
+	if (!$clientid) {
 		return false;
 	}
 	$db = openDatabaseConnection();
 	$sql = "DELETE FROM clients WHERE client_id = :client_id ";
 	$query = $db->prepare($sql);
-	$query->execute(array(
+	$result = $query->execute(array(
 		':client_id' => $clientid));
 	$db = null;
-	return render('client/index');
+
+	if (!$result) {
+		$_SESSION['errors'][] = "Fout: kan client niet verwijderen.";
+		return false;
+	}
+
 	return true;
 }
 

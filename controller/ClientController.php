@@ -4,7 +4,6 @@ require(ROOT . "/model/ClientModel.php");
 
 // http://localhost/Hospital/client/index
 function index() {
-
 	return render('client/index', ['clients'=>getallclients()]); 
 }
 
@@ -21,7 +20,8 @@ function createSave() {
 }
 
 function delete($clientid) {
-	if (!deleteclient($clientid)) {
+	$result = deleteclient($clientid);
+	if ($result == false) {
 		header("Location:" . URL . "error/index");
 		exit();
 	}
