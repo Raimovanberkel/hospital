@@ -15,7 +15,7 @@
 	<tr>
 		<td><?php echo $species['species_description']; ?></td>
 		<td class="center"><a href="<?php echo URL . 'species/edit/' . $species['species_id']; ?>">edit</a></td>
-		<td class="center"><a href=" <?php echo URL . 'species/deletespecies/' . $species['species_id']; ?>">delete</a></td>
+		<td class="center"><a href=" <?php echo URL . 'species/delete/' . $species['species_id']; ?>">delete</a></td>
 	</tr>
 <?php																			
 	}

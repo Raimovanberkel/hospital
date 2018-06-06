@@ -37,7 +37,9 @@ function delete($patientid) {
 
 function edit($patientid) {
 	render("patient/edit", array(
-		'patient' => getpatient($patientid)
+		'patient' => getpatient($patientid),
+		'specieslist' => getSpeciesList(),
+		'clientlist' => getallclients()
 		));
 }
 

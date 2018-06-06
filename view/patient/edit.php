@@ -1,5 +1,5 @@
 
-<h1>Changing the information.</h1>
+<h1>Edit patient</h1>
 <div class="container">
 
   <form action="<?= URL ?>patient/editSave" method="post">
@@ -22,10 +22,12 @@
 			<label for="client">Clients:</label>	
 			<select name="client" value="<?= $patient['client_id'] ?>">
 				<?php
-					$selectedclient = $patient['client_id'];
+					$selectedclients = $patient['client_id'];
 					foreach($clientlist as $clients):
+						$selected = ($selectedclients == $clients['client_id'] ? "selected" : "");
+						$id = $clients['client_id'];
 				?>
-					<option  <?php if ($selectedclient == $clients['client_id']) {echo ("selected");} ?> value="<?php echo $clients['client_id']; ?>"> <?php echo $clients['Clientname'] ?> </option>
+					<option <?= $selected ?> value="<?= $id ?>"> <?php echo $clients['client_firstname'] . ' ' . $clients['client_lastname'] ?> </option>
 				<?php
 					endforeach;
 				?>

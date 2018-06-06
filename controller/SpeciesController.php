@@ -4,7 +4,7 @@ require(ROOT . "/model/SpeciesModel.php");
 
 // http://localhost/Hospital/species/index
 function index() {
-	return render('species/index');
+	return render('species/index', ['specieslist'=>getSpeciesList()]);
 }
 
 function create() {
